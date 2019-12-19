@@ -1,2 +1,2 @@
-# python_api
-learning rest api 
+# recipe-app-api
+recipe-app-api testing 
