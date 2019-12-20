@@ -9,25 +9,25 @@ class ModelTests(TestCase):
         email = 'test@gmail.com'
         password = 'Password123'
         user = get_user_model().objects.create_user(
-			email=email,
-			password=password
-		)
+            email=email,
+            password=password
+        )
 
         self.assertEqual(user.email, email)
         self.assertTrue(user.check_password(password))
 
     def test_new_user_email_normalized(self):
-    	"""Test the email for a new user is normalized"""
-    	email = 'test@GMAIL.com'
-    	user = get_user_model().objects.create_user(email, 'test123')
+        """Test the email for a new user is normalized"""
+        email = 'test@GMAIL.com'
+        user = get_user_model().objects.create_user(email, 'test123')
 
-    	self.assertEqual(user.email, email.lower())
+        self.assertEqual(user.email, email.lower())
 
     def test_new_user_invalid_email(self):
         "test creating user with no email raises error"
         with self.assertRaises(ValueError):
             "you will get an error --> AssertionError: ValueError not raised"
-            get_user_model().objects.create_user(None,'test123')
+            get_user_model().objects.create_user(None, 'test123')
 
     def test_create_new_superuser(self):
         "Testing creating a new superuser"
